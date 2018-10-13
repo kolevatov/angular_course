@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='ControllerAsApp'>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="../angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>Controller As Syntax</title>
+  </head>
+  <body>
+    <h1>Controller As Syntax</h1>
+    <div ng-controller='FirstController'>
+        Value from first controller: {{value}}
+      </div>
+    </div>
+
+    <div ng-controller='SecondController as child'>
+      Value from second controller: {{ child.value }}
+    </div>
+  </body>
+</html>
