@@ -7,20 +7,13 @@
     <script src="../angular.min.js"></script>
     <script src="app.js"></script>
     <style> body { font-size: 1.2em; }</style>
-    <title>Simple Service</title>
+    <title>Simple Directive</title>
   </head>
   <body>
-    <h1>Custom Service</h1>
-    <div ng-controller='ShoppingListAddController as itemAdder'>
-      <item-header></item-header>
-      <br>
-      <input type="text" ng-model="itemAdder.itemName" placeholder="item name">
-      <input type="text" ng-model="itemAdder.itemQuantity" placeholder="quantity">
-      <button ng-click="itemAdder.addItem();">Add Item To Shopping List</button>
-    </div>
-
-    <div ng-controller='ShoppingShowController as showList'>
-      <item-list my-list="showList" title="Items from a list"></item-list>
+    <item-header></item-header>
+    <div ng-controller='SimpleController as button'>
+      <button-header></button-header>
+      <div>{{ button.title }}</div>
     </div>
   </body>
 </html>
