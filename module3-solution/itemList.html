@@ -1,0 +1,8 @@
+<br><br><br>
+<div>
+  <div ng-if="list.menu.length == 0">Nothing found</div>
+  <li ng-repeat="item in list.menu">
+    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+    <button ng-click="remove({index : $index});">Don't want this one!</button>
+  </li>
+</div>
