@@ -24,10 +24,29 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController (MenuSearchService){
   var itemList = this;
   itemList.searchText = '';
+  itemList.nothingFound = false;
   itemList.menu = [];
 
   itemList.search = function(){
-    itemList.menu = MenuSearchService.getMatchedMenuItems(itemList.searchText);
+    if (itemList.searchText === ''){
+      itemList.nothingFound = true;
+      itemList.menu = [];
+    }else {
+        MenuSearchService.getMatchedMenuItems(itemList.searchText)
+        .then(function (response) {
+          if (response.length != 0) {
+            itemList.menu = response;
+            itemList.nothingFound = false;
+          } else {
+            itemList.menu = [];
+            itemList.nothingFound = true;
+          }
+        })
+        .catch(function (error) {
+          console.log(error.message);
+        })
+
+    }
   }
 
   itemList.removeItem = function(itemIndex){
@@ -46,35 +65,23 @@ function MenuSearchService($http, apiURL){
       return filteredMenu;
   }
 
-  menu.getMatchedMenuItems = function(searchTerm){
-    var promise = menu.getMenuItems();
-    filteredMenu = [];
+  menu.getMatchedMenuItems = function(searchTerm) {
+    return $http({
+      method: "GET",
+      url: (apiURL)
+    }).then(function (result) {
+      filteredMenu = []
 
-    promise.then(function (response) {
-      var menuItems = response.data.menu_items;
-
-      for (var i=0; i < menuItems.length; i++){
-        if (menuItems[i].description.indexOf(searchTerm) > 0){
-            filteredMenu.push(menuItems[i]);
+      for (var i = 0; i < result.data.menu_items.length; i++) {
+        if (result.data.menu_items[i].description.toLowerCase().indexOf(searchTerm) != -1) {
+          filteredMenu.push(result.data.menu_items[i]);
         }
       }
 
-      })
-      .catch(function (error) {
-        console.log(error.message);
-      });
       return filteredMenu;
+    });
   }
 
-  // call RESTApi, filter menu
-  menu.getMenuItems = function(){
-    var response = $http(
-      {
-      method: "GET",
-      url: (apiURL)}
-    );
-    return response;
-  }
 }
 
 

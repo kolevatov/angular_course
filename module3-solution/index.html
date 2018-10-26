@@ -22,6 +22,7 @@
     </div>
     <!-- found-items should be implemented as a component -->
     <found-items my-list="parent" on-remove="parent.removeItem(index)"></found-items>
+    <div ng-show="parent.nothingFound">Nothing found</div>
   </div>
 
 </body>
