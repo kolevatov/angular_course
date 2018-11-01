@@ -1,0 +1,11 @@
+body {
+  font-size: 1.2em;
+}
+
+.tab {
+  color: red;
+}
+
+.activeTab {
+  font-weight: bold;
+}

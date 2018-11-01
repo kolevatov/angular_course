@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" ng-app="uiRouter">
+  <head>
+    <title>UI router</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-ui-router.min.js"></script>
+    <script src="./src/app.js"></script>
+  </head>
+<body>
+    <h1>UI router</h1>
+
+    <a ui-sref="tab1" ui-sref-active="activeTab">Tab 1</a>
+    <a ui-sref="tab2" ui-sref-active="activeTab">Tab 2</a>
+
+    <ui-view></ui-view>
+</body>
+</html>
