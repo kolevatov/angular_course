@@ -1,0 +1,8 @@
+<a ui-sref="home" ui-sref-active="activeTab">| "back to Home page"</a>
+<div ng-controller="CategoriesController as list">
+  <div>
+    Menu categories:
+  </div>
+  <categories items="list.items"></categories>
+</div>
+<ui-view></ui-view>

@@ -1,0 +1,9 @@
+<div>
+  Dishes list in category: {{ $ctrl.title }}
+</div>
+<ol>
+  <li ng-repeat="item in $ctrl.items">
+    <b>{{ item.name }}</b>
+       {{ item.description }}
+  </li>
+</ol>
