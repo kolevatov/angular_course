@@ -1,4 +1,4 @@
-angular.module('MenuApp')
+angular.module('data')
 .service('MenuDataService', MenuDataService);
 
 // Service MenuDataService
@@ -10,8 +10,10 @@ function MenuDataService($http, categoriesUrl, itemsUrl){
     return $http({
       method: "GET",
       url: (categoriesUrl)
-    });
-  }
+    }).then(function(response){
+      return response.data;
+    })
+  };
 
   menu.getItemsForCategory = function(categoryShortName){
     return $http({
@@ -20,6 +22,8 @@ function MenuDataService($http, categoriesUrl, itemsUrl){
       params: {
         "category": categoryShortName
       }
-    });
-  }
+    }).then(function(response){
+      return response.data.menu_items;
+    })
+  };
 }
