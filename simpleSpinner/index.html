@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="common">
+  <head>
+    <title>Simple spinner</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/common.css">
+    <!-- Libraries -->
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-ui-router.min.js"></script>
+    <!-- Modules -->
+    <script src="./src/common.module.js"></script>
+    <!-- Routes -->
+    <!-- Libraries -->
+    <script src="./src/spinner.component.js"></script>
+    <script src="./src/spinnerLoading.controller.js"></script>
+  </head>
+<body>
+  <div class="spinner">
+    <spinner-loading></spinner-loading>
+  </div>
+  <div class="button" ng-controller="SpinnerLoadingController as ctrl">
+    <button type="button" name="turnoff" ng-click="ctrl.turnOff();">Turn off</button>
+    <button type="button" name="turnon" ng-click="ctrl.turnOn();">Turn on</button>
+  </div>
+</body>
+</html>

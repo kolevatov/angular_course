@@ -1,0 +1,15 @@
+.spinner {
+    position: absolute;
+    left: 52%;
+    top: 50%;
+    width: 430px;
+    height: 100px;
+}
+
+.button {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    width: 430px;
+    height: 100px;
+}
