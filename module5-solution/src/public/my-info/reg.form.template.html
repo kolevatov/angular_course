@@ -1,66 +1,83 @@
-<fieldset>
-  <legend>Registration</legend>
+<fieldset class="registration-form">
+  <h3>Registration</h3>
   <form name='regForm' novalidate>
 
-    <input type="text" name="first_name" placeholder="Pick a First name"
+    <input type="text" name="first_name" placeholder="Pick a First name" class="form-inputs"
       ng-model="RegForm.user.firstName"
       required
       minlength="4"
       ng-maxlength="15">
-      <span
-        ng-if="(regForm.first_name.$error.minlength || regForm.first_name.$error.required) && regForm.first_name.$touched">
-        First name must be at least 4 characters long
-      </span>
-      <span ng-if="regForm.first_name.$error.maxlength && regForm.first_name.$touched">
-        First name must not be longer than 15 characters
-      </span>
 
-    <input type="text" name="last_name" placeholder="Pick a Last name"
+    <input type="text" name="last_name" placeholder="Pick a Last name" class="form-inputs"
       ng-model="RegForm.user.lastName"
       required
       minlength="4"
       ng-maxlength="15">
-      <span
-        ng-if="(regForm.last_name.$error.minlength || regForm.last_name.$error.required) && regForm.last_name.$touched">
-        Last name must be at least 4 characters long
-      </span>
-      <span ng-if="regForm.last_name.$error.maxlength && regForm.last_name.$touched">
-        Last name must not be longer than 15 characters
-      </span>
-      <br>
+      <br><br>
 
-    <input type="email" name="email" placeholder="Email"
+    <input type="email" name="email" placeholder="Email" class="form-inputs"
       ng-model="RegForm.user.email"
       required>
-      <span ng-if="regForm.email.$invalid && regForm.email.$touched">
-        Must be a valid email address: handle@domain format
-      </span>
-      <br>
 
-    <input type="text" name="phone" placeholder="Phone ###-###-####"
+    <input type="text" name="phone" placeholder="Phone ###-###-####" class="form-inputs"
       ng-model="RegForm.user.phone"
       pattern="(\d{3})-(\d{3})-(\d{4})">
-      <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
-        Phone must be in the format ###-###-####.
-      </span>
-      <br>
+      <br><br>
 
-      <input type="text" name="dish" placeholder="Pick a favorite dish name"
+      <input type="text" name="dish" placeholder="Pick a favorite dish" class="form-inputs"
         ng-model="RegForm.user.dish"
         required
       >
-      <br>
+      <br><br>
 
-    <button
+    <button class="submit-button"
       ng-disabled="regForm.$invalid"
       ng-click="RegForm.submit()">Submit</button>
+
+      <br><br>
+      <div ng-if="(regForm.first_name.$error.minlength || regForm.first_name.$error.required) && regForm.first_name.$touched">
+        <span>
+          First name must be at least 4 characters long
+        </span>
+        <br>
+      </div>
+
+      <div ng-if="regForm.first_name.$error.maxlength && regForm.first_name.$touched">
+        <span>
+          First name must not be longer than 15 characters
+        </span>
+        <br>
+      </div>
+
+      <div ng-if="(regForm.last_name.$error.minlength || regForm.last_name.$error.required) && regForm.last_name.$touched">
+        <span>
+          Last name must be at least 4 characters long
+        </span>
+        <br>
+      </div>
+
+      <div ng-if="regForm.last_name.$error.maxlength && regForm.last_name.$touched">
+        <span>
+          Last name must not be longer than 15 characters
+        </span>
+        <br>
+      </div>
+
+      <div ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+        <span>
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+      </div>
+
+      <div ng-if="regForm.email.$invalid && regForm.email.$touched">
+        <span>
+          Must be a valid email address: handle@domain format
+        </span>
+      </div>
   </form>
 </fieldset>
 
 <div id="info" ng-if="RegForm.completed">
-  First name: {{ RegForm.user.firstName}} <br>
-  Last name: {{ RegForm.user.lastName}} <br>
-  Email: {{ RegForm.user.email}} <br>
-  Phone: {{ RegForm.user.phone }} <br>
-  Favorite dish: {{ RegForm.user.dish}} <br>
+  Your information has been saved!
 </div>

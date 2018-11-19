@@ -18,3 +18,20 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
+
+.registration-form {
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background-color: #61122f;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.submit-button{
+  background-color: #f6b319;
+}
+
+.form-inputs{
+  text-align: center;
+  color: #040404;
+}

@@ -4,10 +4,12 @@
 angular.module('public')
 .controller('RegistrationFormController', RegistrationFormController);
 
-function RegistrationFormController() {
+RegistrationFormController.$inject = ['RegistrationService'];
+function RegistrationFormController(RegistrationService) {
   var $ctrl = this;
 
   $ctrl.submit = function () {
+    RegistrationService.register($ctrl.user);
     $ctrl.completed = true;
   };
 }
