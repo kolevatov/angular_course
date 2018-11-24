@@ -78,6 +78,10 @@
   </form>
 </fieldset>
 
-<div id="info" ng-if="RegForm.completed">
+<div id="info" ng-if="RegForm.completed === 'OK'">
   Your information has been saved!
+</div>
+
+<div id="info_error" ng-if="RegForm.completed === 'FAIL'">
+  No such menu number exists
 </div>

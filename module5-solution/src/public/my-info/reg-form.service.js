@@ -7,13 +7,12 @@ angular.module('public')
 function RegistrationService(){
   var service = this;
   var userInfo = [];
+  var isRegistered = false;
 
-  service.register = function(userData){
-    console.log(userData.firstName);
-    console.log(userData.lastName);
-    console.log(userData.email);
-    console.log(userData.phone);
-    console.log(userData.dish);
+  service.register = function(userData, dishItem){
+    service.userInfo = userData;
+    service.dishItem = dishItem;
+    service.isRegistered = true;
   }
 }
 })();
